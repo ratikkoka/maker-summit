@@ -1,0 +1,222 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --first-color: #7ed0d9;
+  --second-color: #ffeb63;
+}
+
+nav {
+  background-color: var(--first-color);
+}
+
+.navbar-brand img {
+  margin-left: 10px;
+  width: 36px; 
+  height: 36px; 
+}
+
+.navbar-dark .navbar-nav .nav-link{
+  color: var(--second-color) !important;
+}
+
+
+body {
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+p {
+  line-height: 1.8;
+}
+
+h1,
+h2 {
+  color: var(--second-color);
+  font-family: "Montserrat", sans-serif;
+}
+
+h3 {
+  color: var(--second-color);
+  font-family: "Georama", sans-serif;
+}
+
+.material-icons {
+  vertical-align: middle;
+}
+
+footer {
+  background-color: var(--second-color);
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  width: 100%;
+}
+
+footer p {
+  text-align: center;
+  margin: 0;
+}
+
+footer a {
+  color: white;
+}
+
+.grid {
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Styles for Cards */
+.card {
+  display: inline-block;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+  border: 1.25px solid rgb(233, 233, 233);
+  border-radius: 16px;
+  margin: 10px;
+  transition: 0.5s all;
+  --shadow: transparent;
+  box-shadow: 0 0 10px 5px var(--shadow);
+  position: relative;
+  font-size: 100%;
+}
+
+.card:hover {
+  --shadow: rgba(53, 53, 53, 0.103);
+  /* transform: rotateY(180deg) translate(20px, 20px);
+  background: pink; */
+}
+
+.card:hover .main-content {
+  pointer-events: initial;
+  opacity: 1;
+}
+
+.card * {
+  margin: 0;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.main-content {
+  padding: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s all;
+}
+
+.owner {
+  color: grey;
+  font-size: 110%;
+}
+
+.submission-name {
+  font-weight: bold;
+  font-size: 130%;
+}
+
+h5.submission-name {
+  color: white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  text-shadow: 0px 0px 4px black;
+}
+
+.info ul {
+  padding: 10px;
+  padding-top: 0px;
+  border-radius: 7px;
+}
+
+li {
+  list-style-type: none;
+  margin: 0;
+}
+
+.info {
+  color: rgb(83, 83, 83);
+  position: relative;
+  overflow: hidden;
+}
+
+.info.likes {
+  margin-top: 25px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.btn-container {
+  text-align: right;
+  padding: 10px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.btn {
+  --accent: grey;
+  cursor: pointer;
+  background: transparent;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 90%;
+  letter-spacing: 1px;
+  transition: 0.5s all;
+  outline: none;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.edit.btn {
+  --accent: green;
+}
+
+.delete.btn {
+  --accent: red;
+  margin-left: 10px;
+}
+
+.view.btn {
+  --accent: blue;
+  margin-left: 10px;
+}
+
+/* Delete submission */
+.submission-container {
+  width: 100%;
+}
+
+.confirmation-box.show {
+  display: block;
+}
