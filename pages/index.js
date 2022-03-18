@@ -1,12 +1,13 @@
 import { Fade, Slide } from 'react-awesome-reveal';
-import dbConnect from '../lib/dbConnect'
-import Submission from '../models/Submission'
+import dbConnect from '../lib/dbConnect';
+import Submission from '../models/Submission';
+import Image from 'next/image';
 
 export default function Home({ submissions }) {
 
   function getImages(image) {
     let images = image.split(', ');
-    return images;
+    return 'uc?' + images[0].substring(30);
   }
 
   return (
@@ -15,7 +16,7 @@ export default function Home({ submissions }) {
         {submissions.map((submission) => (
           <div key={submission._id}>
             <div className="card">
-              <img src={getImages(submission.images)[0]} />
+              <Image alt="Project Image" layout='fill' src={getImages(submission.images)} />
               <h5 className="submission-name">{submission.title}</h5>
               <div className="main-content">
                 <p className="submission-name">{submission.firstName + " " + submission.lastName}</p>

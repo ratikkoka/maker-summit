@@ -1,14 +1,17 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function NavBar() {
     return (
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark">
             <Link href="/">
                 <a className="navbar-brand">
-                    <img
-                        src="../img/logo_yellow.svg"
+                    <Image
+                        src="/img/logo_yellow.svg"
                         className="d-inline-block align-top"
                         alt="Database Logo"
+                        width={36}
+                        height={36}
                     />
                 </a>
             </Link>
