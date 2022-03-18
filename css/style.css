@@ -7,7 +7,7 @@
   --second-color: #ffeb63;
 }
 
-nav {
+#nav {
   background-color: var(--first-color);
 }
 

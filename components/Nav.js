@@ -1,10 +1,12 @@
 import ActiveLink from './ActiveLink'
 import Link from 'next/link';
 import Image from 'next/image';
+import React from 'react';
+import { Nav } from 'react-bootstrap';
 
 export default function NavBar() {
     return (
-        <nav className="navbar fixed-top navbar-expand-lg navbar-dark">
+        <Nav id='nav' className="navbar fixed-top navbar-expand-lg navbar-dark">
             <Link href="/">
                 <a className="navbar-brand" style={{marginLeft: 10}}>
                     <Image
@@ -16,18 +18,31 @@ export default function NavBar() {
                     />
                 </a>
             </Link>
-            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li className="nav-item">
-                    <ActiveLink activeClassName="active" href="/">
-                        <a className="nav-link"> Home</a>
-                    </ActiveLink>
-                </li>
-                <li className="nav-item">
-                    <ActiveLink activeClassName="active" href="/submissions">
-                        <a className="nav-link"> Submissions</a>
-                    </ActiveLink>
-                </li>
-            </ul>
-        </nav>
+            <button 
+                className="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className='collapse navbar-collapse' id="navbarNavAltMarkup">
+                <ul className="navbar-nav mr-auto">
+                    <li className="nav-item">
+                        <ActiveLink activeClassName="active" href="/">
+                            <a className="nav-link"> Home</a>
+                        </ActiveLink>
+                    </li>
+                    <li className="nav-item">
+                        <ActiveLink activeClassName="active" href="/submissions">
+                            <a className="nav-link"> Submissions</a>
+                        </ActiveLink>
+                    </li>
+                </ul>
+            </div>
+        </Nav>
     );
   }
