@@ -5,6 +5,10 @@ import Image from 'next/image';
 
 export default function Home({ submissions }) {
 
+  const driveLoader = ({ src }) => {
+    return `https://drive.google.com/${src}`
+  }
+
   function getImages(image) {
     let images = image.split(', ');
     return 'uc?' + images[0].substring(30);
@@ -16,7 +20,12 @@ export default function Home({ submissions }) {
         {submissions.map((submission) => (
           <div key={submission._id}>
             <div className="card">
-              <Image alt="Project Image" layout='fill' src={getImages(submission.images)} />
+              <Image 
+                loader={driveLoader} 
+                alt="Project Image" 
+                layout='fill' 
+                src={getImages(submission.images)} 
+              />
               <h5 className="submission-name">{submission.title}</h5>
               <div className="main-content">
                 <p className="submission-name">{submission.firstName + " " + submission.lastName}</p>

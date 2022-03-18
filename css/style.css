@@ -11,10 +11,6 @@ nav {
   background-color: var(--first-color);
 }
 
-.navbar-brand Image {
-  margin-left: 10px; 
-}
-
 .navbar-dark .navbar-nav .nav-link{
   color: var(--second-color) !important;
 }
