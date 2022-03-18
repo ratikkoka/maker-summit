@@ -2,7 +2,7 @@ import '../css/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Layout from '../components/layout';
 import React, { useEffect } from 'react';
-import Script from 'next/Script';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }) {
   return (
