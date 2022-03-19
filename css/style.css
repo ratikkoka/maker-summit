@@ -38,6 +38,11 @@ body {
   background-color: var(--second-color) !important;
 }
 
+.btn-outline-primary:hover {
+  color: var(--first-color) !important;
+  background-color: var(--second-color) !important;
+}
+
 header {
   text-align: center;
 }
@@ -83,6 +88,8 @@ footer a {
 }
 
 .welcome {
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
