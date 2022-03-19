@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Layout>
-        <div className="grid">
+        <div>
           <Component {...pageProps} />
         </div>
       </Layout>

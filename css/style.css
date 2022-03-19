@@ -27,7 +27,13 @@ body {
   border-color: var(--second-color) !important;
 }
 
-.btn-outline-primary:hover {
+.btn-primary {
+  color: var(--second-color) !important;
+  background-color: var(--first-color) !important;
+  border-color: var(--first-color) !important;
+}
+
+.btn-primary:hover {
   color: var(--first-color) !important;
   background-color: var(--second-color) !important;
 }
@@ -84,8 +90,16 @@ footer a {
   width: 50%;
 }
 
+.filters {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-left: 80px;
+  margin-top: 80px;
+}
+
 .grid {
-  margin-top: 70px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
