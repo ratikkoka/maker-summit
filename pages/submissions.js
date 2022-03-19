@@ -1,7 +1,7 @@
 import { Slide } from 'react-awesome-reveal';
 import dbConnect from '../lib/dbConnect';
 import Submission from '../models/Submission';
-import Image from 'next/image';
+import EmblaCarousel from '../components/EmblaCarousel';
 import { useState } from 'react';
 
 export default function Submissions({ submissions }) {
@@ -17,13 +17,9 @@ export default function Submissions({ submissions }) {
     setItems(newItem);
   };
 
-  const driveLoader = ({ src }) => {
-    return `https://drive.google.com/${src}`
-  }
-
   function getImages(image) {
     let images = image.split(', ');
-    return 'uc?' + images[0].substring(30);
+    return images;
   }
 
   return (
@@ -52,12 +48,7 @@ export default function Submissions({ submissions }) {
           {items.map((submission) => (
             <div key={submission._id}>
               <div className="card">
-                <Image 
-                  loader={driveLoader} 
-                  alt="Project Image" 
-                  layout='fill' 
-                  src={getImages(submission.images)} 
-                />
+                <EmblaCarousel images={getImages(submission.images)} id={submission._id}/>
                 <h5 className="submission-name">{submission.title}</h5>
                 <div className="main-content">
                   <p className="submission-name">{submission.firstName + " " + submission.lastName}</p>

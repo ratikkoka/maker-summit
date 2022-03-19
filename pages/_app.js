@@ -1,6 +1,6 @@
 import '../css/style.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import React, { useEffect } from 'react';
 import Script from 'next/script';
 
