@@ -52,7 +52,7 @@ p {
 }
 
 h1 {
-  font-size: 12vw !important;
+  font-size: 10vw !important;
 }
 
 h1,
@@ -96,6 +96,12 @@ footer a {
   justify-content: center;
   align-items: center;
   width: 50%;
+  text-align: center;
+}
+
+.welcome p {
+  display: inline;
+  color: #ffeece;
 }
 
 .filters {
@@ -339,3 +345,20 @@ li {
   right: 10px;
 }
 
+@media (max-width: 768px) {
+  .welcome p {
+    display: none;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 80px;
+    flex-wrap: wrap;
+  }
+  
+}
