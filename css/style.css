@@ -347,18 +347,8 @@ li {
 
 @media (max-width: 468px) {
   .card {
-    display: inline-block;
     width: 300px;
     height: 250px;
-    overflow: hidden;
-    border: 1.25px solid rgb(233, 233, 233);
-    border-radius: 16px;
-    margin: 10px;
-    transition: 0.5s all;
-    --shadow: transparent;
-    box-shadow: 0 0 10px 5px var(--shadow);
-    position: relative;
-    font-size: 100%;
   }
 }
 
@@ -377,14 +367,4 @@ li {
     margin-top: 80px;
     flex-wrap: wrap;
   }
-
-  .grid {
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
 }
