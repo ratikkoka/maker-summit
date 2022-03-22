@@ -2,12 +2,13 @@ import { Slide } from 'react-awesome-reveal';
 import dbConnect from '../lib/dbConnect';
 import Submission from '../models/Submission';
 import EmblaCarousel from '../components/EmblaCarousel';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Submissions({ submissions }) {
 
   const [items, setItems] = useState(submissions);
-
+  const [popSubmission, setSubmission] = useState(submissions[0])
   const filtered = [...new Set(submissions.map((val) => val.category))];
 
   const filterItem = (curcat) => {
@@ -20,6 +21,10 @@ export default function Submissions({ submissions }) {
   function getImages(image) {
     let images = image.split(', ');
     return images;
+  }
+
+  const driveLoader = ({ src }) => {
+    return `https://res.cloudinary.com/rkoka/image/upload/submission_images/${src}`
   }
 
   return (
@@ -43,19 +48,35 @@ export default function Submissions({ submissions }) {
           );
         })}
       </div>
+      <div className="modal fade" id="popup" tabIndex="-1" role="dialog" aria-labelledby="popupTitle" aria-hidden="true">
+        <div className="modal-dialog modal-lg" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="popupTitle">{popSubmission.title}</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body"> 
+              <EmblaCarousel images={getImages(popSubmission.images)} />
+              <p>{popSubmission.firstName + " " + popSubmission.lastName}</p>
+              <p>{popSubmission.desc}</p>
+            </div>
+          </div>
+        </div>
+        </div>
       <div className="grid">
         <Slide direction='up'>
           {items.map((submission) => (
             <div key={submission._id}>
-              <div className="card">
-                <EmblaCarousel images={getImages(submission.images)} id={submission._id}/>
+              <div className="card" data-toggle="modal" data-target="#popup" onClick={() => {setSubmission(submission)}}>
+                <Image 
+                  loader={driveLoader} 
+                  alt="Project Image"
+                  layout='fill' 
+                  src={getImages(submission.images)[0].substring(33)} 
+                />
                 <h5 className="submission-name">{submission.title}</h5>
-                <div className="main-content">
-                  <p className="submission-name">{submission.firstName + " " + submission.lastName}</p>
-                  <div className="likes info">
-                    <p className="label">{submission.desc}</p>
-                  </div>
-                </div>
               </div>
             </div>
           ))}

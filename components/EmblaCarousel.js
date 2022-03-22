@@ -3,7 +3,7 @@ import { PrevButton, NextButton } from "../components/EmblaButtons";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from 'next/image';
 
-const EmblaCarousel = ({ images, id }) => {
+const EmblaCarousel = ({ images }) => {
   const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
