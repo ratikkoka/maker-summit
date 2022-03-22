@@ -31,7 +31,7 @@ const EmblaCarousel = ({ images, id }) => {
   }, [embla, setScrollSnaps, onSelect]);
 
   const driveLoader = ({ src }) => {
-    return `https://drive.google.com/${src}`
+    return `https://res.cloudinary.com/rkoka/image/upload/submission_images/${src}`
   }
   const imageArray = [...images];
 
@@ -48,7 +48,7 @@ const EmblaCarousel = ({ images, id }) => {
                         loader={driveLoader} 
                         alt="Project Image"
                         layout='fill' 
-                        src={'uc?' + image.substring(30)} 
+                        src={image.substring(33)} 
                     />
                 </div>
               </div>
