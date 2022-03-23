@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <style jsx global>{`
         body {
-          background-color: #7ed0d9;
+          background-color: #4b2e83;
         }
       `}</style>
       <div className='welcome'>

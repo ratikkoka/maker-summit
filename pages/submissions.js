@@ -11,6 +11,7 @@ export default function Submissions({ submissions }) {
   const [items, setItems] = useState(submissions);
   const [popSubmission, setSubmission] = useState(submissions[0])
   const filtered = [...new Set(submissions.map((val) => val.category))];
+  const [scroll, setScroll] = useState("none");
 
   const filterItem = (curcat) => {
     const newItem = submissions.filter((newVal) => {
@@ -18,6 +19,26 @@ export default function Submissions({ submissions }) {
     });
     setItems(newItem);
   };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+  }, [])
+
+  const handleScroll = () => {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      setScroll("block");
+    } else {
+      setScroll("none");
+    }
+  }
+
+  const handleClick = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 
   function getImages(image) {
     let images = image.split(', ');
@@ -81,6 +102,11 @@ export default function Submissions({ submissions }) {
           ))}
         </Slide>
       </div>
+      <Button id="btn-back-to-top" onClick={handleClick} style={{display: scroll}}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-up" viewBox="0 0 16 16">
+          <path fillRule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+        </svg>
+      </Button>
     </>
   )
 }
