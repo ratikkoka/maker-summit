@@ -2,11 +2,11 @@ import ActiveLink from './ActiveLink'
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
-import { Nav } from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 
 export default function NavBar() {
     return (
-        <Nav id='nav' className="navbar fixed-top navbar-expand-lg navbar-dark">
+        <Navbar id='nav' className="navbar fixed-top navbar-expand-lg navbar-dark">
             <Link href="/">
                 <a className="navbar-brand" style={{marginLeft: 10}}>
                     <Image
@@ -21,8 +21,8 @@ export default function NavBar() {
             <button 
                 className="navbar-toggler"
                 type="button"
-                data-toggle="collapse"
-                data-target="#navbarNavAltMarkup"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
@@ -43,6 +43,6 @@ export default function NavBar() {
                     </li>
                 </ul>
             </div>
-        </Nav>
+        </Navbar>
     );
   }

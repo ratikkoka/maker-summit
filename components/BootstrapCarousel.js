@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { Carousel } from 'react-bootstrap';
 
 const BootstrapCarousel = ({ images }) => {
     const driveLoader = ({ src }) => {
@@ -9,24 +9,10 @@ const BootstrapCarousel = ({ images }) => {
 
     return (
         <>
-            <div id="submissionCarousel" className="carousel slide" data-ride="carousel">
-                <ol className="carousel-indicators">
+            <Carousel>
                     {imageArray.map((image, index) => {
-                        if (index ===0) {
-                            return (<li data-target="#submissionCarousel" data-slide-to="0" className="active"></li>);
-                        } else {
-                            return (<li data-target="#submissionCarousel" data-slide-to={index}></li>)
-                        }
-                    })}
-                </ol>
-                <div className="carousel-inner">
-                    {imageArray.map((image, index) => {
-                        let classNames = "carousel-item";
-                        if (index === 0) {
-                            classNames = "carousel-item active";
-                        }
                         return (
-                            <div className={classNames} key={index}>
+                            <Carousel.Item key={index}>
                                 <Image 
                                     className="d-block w-100"
                                     loader={driveLoader} 
@@ -34,19 +20,10 @@ const BootstrapCarousel = ({ images }) => {
                                     layout='fill' 
                                     src={image.substring(33)} 
                                 />
-                            </div>
+                            </Carousel.Item>
                         );
                     })}
-                </div>
-                <a className="carousel-control-prev" href="#submissionCarousel" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Previous</span>
-                </a>
-                <a className="carousel-control-next" href="#submissionCarousel" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="sr-only">Next</span>
-                </a>
-            </div>
+            </Carousel>
         </>
     )
 }

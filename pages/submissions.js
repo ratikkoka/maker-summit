@@ -3,7 +3,8 @@ import dbConnect from '../lib/dbConnect';
 import Submission from '../models/Submission';
 import BootstrapCarousel from '../components/BootstrapCarousel';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 
 export default function Submissions({ submissions }) {
 
@@ -27,6 +28,11 @@ export default function Submissions({ submissions }) {
     return `https://res.cloudinary.com/rkoka/image/upload/submission_images/${src}`
   }
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <>
       <div className="filters">
@@ -48,28 +54,21 @@ export default function Submissions({ submissions }) {
           );
         })}
       </div>
-      <div className="modal fade" id="popup" tabIndex="-1" role="dialog" aria-labelledby="popupTitle" aria-hidden="true">
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
+      <Modal show={show} onHide={handleClose} id="popup">
+            <Modal.Header closeButton>
               <h5 className="modal-title" id="popupTitle">{popSubmission.title}</h5>
-              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body"> 
+            </Modal.Header>
+            <Modal.Body> 
               <BootstrapCarousel images={getImages(popSubmission.images)} />
               <p>{popSubmission.firstName + " " + popSubmission.lastName}</p>
               <p>{popSubmission.desc}</p>
-            </div>
-          </div>
-        </div>
-        </div>
+          </Modal.Body>
+      </Modal>
       <div className="grid">
         <Slide direction='up'>
           {items.map((submission) => (
             <div key={submission._id}>
-              <div className="card" data-toggle="modal" data-target="#popup" onClick={() => {setSubmission(submission)}}>
+              <div className="card" onClick={() => {handleShow(); setSubmission(submission)}}>
                 <Image 
                   loader={driveLoader} 
                   alt="Project Image"
