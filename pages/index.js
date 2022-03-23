@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 
 export default function Home() {
   
@@ -18,7 +19,7 @@ export default function Home() {
       <div className='welcome'>
         <h1>Maker Summit 2022</h1>
         <Link href="/submissions" passHref>
-          <button type='button' className='btn btn-outline-primary'>View Submissions</button>  
+          <Button variant="outline-primary">View Submissions</Button>  
         </Link>
         <p>{description}</p>
       </div>

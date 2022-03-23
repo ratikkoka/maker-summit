@@ -109,11 +109,11 @@ footer a {
   justify-content: flex-start;
   gap: 10px;
   margin-left: 80px;
-  margin-top: 80px;
+  margin-top: 30px;
 }
 
 .grid {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   display: flex;

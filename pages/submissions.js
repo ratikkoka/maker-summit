@@ -36,21 +36,21 @@ export default function Submissions({ submissions }) {
   return (
     <>
       <div className="filters">
-        <button
-            className="btn btn-primary"
+        <Button
+            variant="primary"
             onClick={() => setItems(submissions)}
           >
             All
-        </button>
+        </Button>
         {filtered.map((Val, id) => {
           return (
-            <button
-              className="btn btn-primary"
+            <Button
+              variant="primary"
               onClick={() => filterItem(Val)}
               key={id}
             >
               {Val}
-            </button>
+            </Button>
           );
         })}
       </div>
