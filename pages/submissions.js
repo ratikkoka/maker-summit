@@ -1,7 +1,7 @@
 import { Slide } from 'react-awesome-reveal';
 import dbConnect from '../lib/dbConnect';
 import Submission from '../models/Submission';
-import EmblaCarousel from '../components/EmblaCarousel';
+import BootstrapCarousel from '../components/BootstrapCarousel';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -49,7 +49,7 @@ export default function Submissions({ submissions }) {
         })}
       </div>
       <div className="modal fade" id="popup" tabIndex="-1" role="dialog" aria-labelledby="popupTitle" aria-hidden="true">
-        <div className="modal-dialog modal-lg" role="document">
+        <div className="modal-dialog" role="document">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="popupTitle">{popSubmission.title}</h5>
@@ -58,7 +58,7 @@ export default function Submissions({ submissions }) {
               </button>
             </div>
             <div className="modal-body"> 
-              <EmblaCarousel images={getImages(popSubmission.images)} />
+              <BootstrapCarousel images={getImages(popSubmission.images)} />
               <p>{popSubmission.firstName + " " + popSubmission.lastName}</p>
               <p>{popSubmission.desc}</p>
             </div>

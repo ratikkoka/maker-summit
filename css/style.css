@@ -345,6 +345,26 @@ li {
   right: 10px;
 }
 
+.carousel {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sr-only {
+  display: none;
+}
+
+.carousel, .carousel-inner, .carousel-item {
+  max-width: 400px;
+  min-height: 350px !important;
+}
+
+.carousel-indicators {
+  min-height: 3px !important;
+}
+
+
+
 @media (max-width: 468px) {
   .card {
     width: 300px;

@@ -4,7 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Image from 'next/image';
 
 const EmblaCarousel = ({ images }) => {
-  const [viewportRef, embla] = useEmblaCarousel({ skipSnaps: false });
+  const [viewportRef, embla] = useEmblaCarousel({ align: 'start', inViewThreshold: 0.5, loop: true, skipSnaps: false });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
