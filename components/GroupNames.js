@@ -5,9 +5,9 @@ export default function GroupNames(props) {
             <p>{names.firstName + " " + names.lastName}</p>
             )
     }
-    let nameList = names.members.map((member) => {
+    let nameList = names.members.map((member, index) => {
         return (
-            <p>{member.first + " " + member.last}</p>
+            <p key={index}>{member.first + " " + member.last}</p>
         )
     })
 
