@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const SubmissionSchema = new mongoose.Schema({
   email: {
@@ -45,7 +45,9 @@ const SubmissionSchema = new mongoose.Schema({
   },
   notes: {
     type: String,
-  }
-})
+  },
+});
 
-export default mongoose.models.Submission || mongoose.model('Submission', SubmissionSchema)
+
+export default mongoose.models.Submission ||
+  mongoose.model("Submission", SubmissionSchema);
