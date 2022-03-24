@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as Scroll } from "react-scroll";
+import GroupNames from '../components/GroupNames';
+
 
 export default function Submissions({ submissions }) {
   const [items, setItems] = useState(submissions);
@@ -65,16 +67,14 @@ export default function Submissions({ submissions }) {
         })}
       </div>
       <Modal show={show} onHide={handleClose} id="popup">
-        <Modal.Header closeButton>
-          <h5 className="modal-title" id="popupTitle">
-            {popSubmission.title}
-          </h5>
-        </Modal.Header>
-        <Modal.Body>
-          <BootstrapCarousel images={getImages(popSubmission.images)} />
-          <p>{popSubmission.firstName + " " + popSubmission.lastName}</p>
-          <p>{popSubmission.desc}</p>
-        </Modal.Body>
+            <Modal.Header closeButton>
+              <h5 className="modal-title" id="popupTitle">{popSubmission.title}</h5>
+            </Modal.Header>
+            <Modal.Body> 
+              <BootstrapCarousel images={getImages(popSubmission.images)} />
+              <GroupNames pop={popSubmission}/>
+              <p>{popSubmission.desc}</p>
+          </Modal.Body>
       </Modal>
       <div className="grid">
         <Slide direction="up">
