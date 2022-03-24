@@ -45,7 +45,7 @@ const SubmissionSchema = new mongoose.Schema({
   },
   notes: {
     type: String,
-  },
+  }
 })
 
 export default mongoose.models.Submission || mongoose.model('Submission', SubmissionSchema)

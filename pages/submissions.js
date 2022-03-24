@@ -5,6 +5,7 @@ import BootstrapCarousel from '../components/BootstrapCarousel';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import GroupNames from '../components/GroupNames';
 
 export default function Submissions({ submissions }) {
 
@@ -81,7 +82,7 @@ export default function Submissions({ submissions }) {
             </Modal.Header>
             <Modal.Body> 
               <BootstrapCarousel images={getImages(popSubmission.images)} />
-              <p>{popSubmission.firstName + " " + popSubmission.lastName}</p>
+              <GroupNames pop={popSubmission}/>
               <p>{popSubmission.desc}</p>
           </Modal.Body>
       </Modal>
