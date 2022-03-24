@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "react-bootstrap";
+import Layout from "../components/layout";
 
 export default function Home() {
   let description = `Vote for your favorite project!
@@ -16,7 +17,7 @@ export default function Home() {
         }
       `}</style>
       <div className="welcome">
-        <h1>Maker Summit 2022</h1>
+        <h1 className="welcome-title">Maker Summit 2022</h1>
         <Link href="/submissions" passHref>
           <Button variant="outline-primary">View Submissions</Button>
         </Link>
@@ -25,3 +26,7 @@ export default function Home() {
     </>
   );
 }
+
+Home.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};

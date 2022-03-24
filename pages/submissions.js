@@ -1,10 +1,10 @@
 import { Slide } from "react-awesome-reveal";
-import dbConnect from "../lib/dbConnect";
-import Submission from "../models/Submission";
 import BootstrapCarousel from "../components/BootstrapCarousel";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { Link as Scroll } from "react-scroll";
 
 export default function Submissions({ submissions }) {
   const [items, setItems] = useState(submissions);
@@ -34,11 +34,6 @@ export default function Submissions({ submissions }) {
     }
   };
 
-  const handleClick = () => {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  };
-
   function getImages(image) {
     let images = image.split(", ");
     return images;
@@ -54,7 +49,7 @@ export default function Submissions({ submissions }) {
   const handleShow = () => setShow(true);
 
   return (
-    <>
+    <div id="submissionStart">
       <div className="filters">
         <Button variant="primary" onClick={() => setItems(submissions)}>
           All
@@ -102,44 +97,11 @@ export default function Submissions({ submissions }) {
           ))}
         </Slide>
       </div>
-      <Button
-        id="btn-back-to-top"
-        onClick={handleClick}
-        style={{ display: scroll }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className="bi bi-arrow-up"
-          viewBox="0 0 16 16"
-        >
-          <path
-            fillRule="evenodd"
-            d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"
-          />
-        </svg>
-      </Button>
-    </>
+      <Scroll to="submissionStart" offset={-70} smooth={true}>
+        <Button id="btn-back-to-top" style={{ display: scroll }}>
+          <ArrowUpwardIcon />
+        </Button>
+      </Scroll>
+    </div>
   );
-}
-
-/* Retrieves submission(s) data from mongodb database */
-export async function getServerSideProps() {
-  try {
-    await dbConnect();
-
-    /* find all the data in our database */
-    const result = await Submission.find({});
-    const submission = result.map((doc) => {
-      const submission = doc.toObject();
-      submission._id = submission._id.toString();
-      return submission;
-    });
-
-    return { props: { submissions: submission } };
-  } catch (e) {
-    console.log(e);
-  }
 }

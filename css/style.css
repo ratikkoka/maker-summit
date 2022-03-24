@@ -7,6 +7,34 @@
   --second-color: white;
 }
 
+.mui-root {
+  min-height: 100vh;
+  background-color: #4b2e83;
+  background-repeat: "no-repeat";
+  background-size: "cover";
+}
+
+.mui-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Montserrat";
+}
+
+.mui-appbar-title {
+  flex-grow: 1;
+}
+
+.mui-container {
+  text-align: center;
+}
+
+.mui-title {
+  color: "#ffffff";
+  font-size: 4.5rem !important;
+}
+
 #nav {
   background-color: var(--first-color) !important;
 }
@@ -27,14 +55,14 @@ body {
 }
 
 .btn-primary {
-  color: var(--second-color) !important;
-  background-color: var(--first-color) !important;
-  border-color: var(--first-color) !important;
+  color: var(--first-color) !important;
+  background-color: var(--second-color) !important;
+  border-color: var(--second-color) !important;
 }
 
 .btn-primary:hover {
-  color: var(--first-color) !important;
-  background-color: var(--second-color) !important;
+  color: var(--second-color) !important;
+  background-color: var(--first-color) !important;
 }
 
 .btn-outline-primary:hover {
@@ -42,15 +70,11 @@ body {
   background-color: var(--second-color) !important;
 }
 
-header {
-  text-align: center;
-}
-
 p {
   line-height: 1.8;
 }
 
-h1 {
+.welcome-title {
   font-size: 10vw !important;
 }
 
