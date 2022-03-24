@@ -1,11 +1,10 @@
 export default function GroupNames(props) {
     let names = props.pop;
-    if (names.groupCheck == "No") {
+    if (names.groupCheck == "No" || !names.members) {
         return (
             <p>{names.firstName + " " + names.lastName}</p>
             )
     }
-
     let nameList = names.members.map((member) => {
         return (
             <p>{member.first + " " + member.last}</p>
