@@ -11,10 +11,9 @@
   background-color: var(--first-color) !important;
 }
 
-.nav-link{
+.nav-link {
   color: var(--second-color) !important;
 }
-
 
 body {
   background-color: var(--first-color);
@@ -235,7 +234,9 @@ li {
   margin-right: auto;
 }
 
-.carousel, .carousel-inner, .carousel-item {
+.carousel,
+.carousel-inner,
+.carousel-item {
   max-width: 400px;
   min-height: 350px !important;
 }
