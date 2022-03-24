@@ -1,4 +1,6 @@
 import { Slide } from "react-awesome-reveal";
+import dbConnect from "../lib/dbConnect";
+import Submission from "../models/Submission";
 import BootstrapCarousel from "../components/BootstrapCarousel";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -104,4 +106,22 @@ export default function Submissions({ submissions }) {
       </Scroll>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  try {
+    await dbConnect();
+
+    /* find all the data in our database */
+    const result = await Submission.find({});
+    const submission = result.map((doc) => {
+      const submission = doc.toObject();
+      submission._id = submission._id.toString();
+      return submission;
+    });
+
+    return { props: { submissions: submission } };
+  } catch (e) {
+    console.log(e);
+  }
 }
