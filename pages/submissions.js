@@ -25,8 +25,8 @@ export default function Submissions({ submissions }) {
 
   const handleScroll = () => {
     if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
+      document.body.scrollTop > 750 ||
+      document.documentElement.scrollTop > 750
     ) {
       setScroll("block");
     } else {
