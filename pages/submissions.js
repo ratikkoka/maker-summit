@@ -74,7 +74,7 @@ export default function Submissions({ submissions }) {
             </Modal.Header>
             <Modal.Body> 
               <BootstrapCarousel images={getImages(popSubmission.images)} />
-              <GroupNames className="author-popup" pop={popSubmission}/>
+              <GroupNames pop={popSubmission}/>
               <p>{popSubmission.desc}</p>
           </Modal.Body>
       </Modal>

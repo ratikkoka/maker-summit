@@ -197,7 +197,19 @@ footer a {
 }
 
 .author-popup {
-  margin-top: 1rem;
+  margin-top: .5rem;
+}
+
+#author-btn {
+  background-color:rgba(201, 198, 52, 0.473)
+}
+
+.active-btn, #author-btn:hover {
+  background-color:rgba(103, 47, 148, 0.644) !important;
+}
+
+.disappear {
+  display: none;
 }
 
 .title-box {
