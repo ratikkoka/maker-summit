@@ -216,7 +216,7 @@ footer a {
 
 .title-box {
   text-align: center;
-  color: var(--second-color) !important;
+  background-color: rgba(162, 115, 248, 0.705);
   position: absolute;
   left: .5rem;
   bottom: .5rem;
