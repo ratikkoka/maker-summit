@@ -9,19 +9,18 @@ export default function GroupNames(props) {
             </div>
             )
     }
-    let nameList = names.members.map((member, index) => {
-        return (
-            <p key={index}>{member.first + " " + member.last}</p>
-        )
+    let nameList = "";
+    names.members.forEach((member) => {
+        nameList += member.first + " " + member.last + ", ";
     })
-
+    nameList = nameList.substring(0, nameList.length - 2);
     return (
         <Accordion defaultActiveKey="0">
             <Accordion.Item eventKey="1">
                 <Accordion.Header>Group Members</Accordion.Header>
                 <Accordion.Body>
                     <div>
-                        {nameList}
+                        <p>{nameList}</p>
                     </div>
                 </Accordion.Body>
             </Accordion.Item>
