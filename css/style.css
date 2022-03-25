@@ -192,6 +192,23 @@ footer a {
   font-size: 110%;
 }
 
+.modal-content {
+  text-align: center;
+}
+
+.title-box {
+  text-align: center;
+  background-color: rgba(162, 115, 248, 0.705);
+  position: absolute;
+  left: .5rem;
+  bottom: .5rem;
+  padding: 10px;
+}
+
+.title-div {
+  width: 100%;
+}
+
 .submission-name {
   font-weight: bold;
   font-size: 130%;
@@ -199,10 +216,6 @@ footer a {
 
 h5.submission-name {
   color: white;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  padding: 10px;
   text-shadow: 0px 0px 4px black;
 }
 

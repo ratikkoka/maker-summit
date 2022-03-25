@@ -68,7 +68,9 @@ export default function Submissions({ submissions }) {
       </div>
       <Modal show={show} onHide={handleClose} id="popup">
             <Modal.Header closeButton>
-              <h5 className="modal-title" id="popupTitle">{popSubmission.title}</h5>
+              <div className="title-div">
+                <h5 className="modal-title" id="popupTitle">{popSubmission.title}</h5>
+              </div>
             </Modal.Header>
             <Modal.Body> 
               <BootstrapCarousel images={getImages(popSubmission.images)} />
@@ -93,7 +95,9 @@ export default function Submissions({ submissions }) {
                   layout="fill"
                   src={getImages(submission.images)[0].substring(33)}
                 />
-                <h5 className="submission-name">{submission.title}</h5>
+                <div className='title-box'>
+                  <h5 className="submission-name">{submission.title}</h5>
+                </div>
               </div>
             </div>
           ))}
