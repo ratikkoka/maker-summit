@@ -2,7 +2,7 @@ export default function GroupNames(props) {
     let names = props.pop;
     if (names.groupCheck == "No" || !names.members) {
         return (
-            <div className="author-popup">
+            <div>
                 <p>{names.firstName + " " + names.lastName}</p>
             </div>
             )
@@ -14,7 +14,7 @@ export default function GroupNames(props) {
     })
 
     return (
-        <div className="author-popup">
+        <div>
             {nameList}
         </div>
     )

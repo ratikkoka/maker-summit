@@ -196,6 +196,10 @@ footer a {
   text-align: center;
 }
 
+.author-popup {
+  margin-top: 1rem;
+}
+
 .title-box {
   text-align: center;
   background-color: rgba(162, 115, 248, 0.705);
@@ -203,6 +207,7 @@ footer a {
   left: .5rem;
   bottom: .5rem;
   padding: 10px;
+  margin-right: .5rem;
 }
 
 .title-div {
