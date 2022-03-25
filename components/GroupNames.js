@@ -1,4 +1,4 @@
-import { Button } from "react-bootstrap";
+import { Button, Accordion } from "react-bootstrap";
 
 export default function GroupNames(props) {
     let names = props.pop;
@@ -16,17 +16,15 @@ export default function GroupNames(props) {
     })
 
     return (
-        <div className="author-popup">
-            <Button variant="primary" type="button" id='author-btn' onClick={() => toggleBtn()}>Group Members</Button>
-            <div className="group-members disappear">
-                {nameList}
-            </div>
-        </div>
+        <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="1">
+                <Accordion.Header>Group Members</Accordion.Header>
+                <Accordion.Body>
+                    <div>
+                        {nameList}
+                    </div>
+                </Accordion.Body>
+            </Accordion.Item>
+        </Accordion>
     )
-}
-
-function toggleBtn() {
-    document.getElementById('author-btn').classList.toggle('active-btn');
-    let author = document.querySelector('.group-members');
-    author.classList.toggle('disappear');
 }

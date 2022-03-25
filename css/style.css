@@ -201,14 +201,11 @@ footer a {
   margin-top: .5rem;
 }
 
-#author-btn {
-  color: var(--second-color) !important;
-  background-color: var(--first-color) !important;
-  border-color: var(--first-color) !important;
+.accordion {
+  margin-top: 1rem;
 }
-
-.disappear {
-  display: none;
+.accordion-item {
+  background-color: rgba(206, 182, 250, 0.795) !important;
 }
 
 .title-box {
