@@ -93,7 +93,9 @@ export default function Submissions({ submissions }) {
                   layout="fill"
                   src={getImages(submission.images)[0].substring(33)}
                 />
-                <h5 className="submission-name">{submission.title}</h5>
+                <div className='title-box'>
+                  <h5 className="submission-name">{submission.title}</h5>
+                </div>
               </div>
             </div>
           ))}
