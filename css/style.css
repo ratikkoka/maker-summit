@@ -194,6 +194,18 @@ footer a {
 
 .modal-content {
   text-align: center;
+  font-weight: bold;
+}
+
+.author-popup, .modal-header {
+  margin-top: .5rem;
+}
+
+.accordion {
+  margin-top: 1rem;
+}
+.accordion-item {
+  background-color: rgba(206, 182, 250, 0.795) !important;
 }
 
 .title-box {
@@ -203,6 +215,7 @@ footer a {
   left: .5rem;
   bottom: .5rem;
   padding: 10px;
+  margin-right: .5rem;
 }
 
 .title-div {
@@ -302,10 +315,6 @@ li {
 }
 
 @media (max-width: 768px) {
-  .welcome p {
-    display: none;
-  }
-
   .filters {
     display: flex;
     justify-content: center;
