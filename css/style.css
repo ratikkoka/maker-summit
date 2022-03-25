@@ -202,11 +202,9 @@ footer a {
 }
 
 #author-btn {
-  background-color:rgba(103, 47, 148, 0.644)
-}
-
-.active-btn, #author-btn:hover {
-  background-color:rgba(190, 163, 73, 0.664) !important;
+  color: var(--second-color) !important;
+  background-color: var(--first-color) !important;
+  border-color: var(--first-color) !important;
 }
 
 .disappear {
@@ -320,10 +318,6 @@ li {
 }
 
 @media (max-width: 768px) {
-  .welcome p {
-    display: none;
-  }
-
   .filters {
     display: flex;
     justify-content: center;

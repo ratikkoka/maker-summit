@@ -1,3 +1,5 @@
+import { Button } from "react-bootstrap";
+
 export default function GroupNames(props) {
     let names = props.pop;
     if (names.groupCheck == "No" || !names.members) {
@@ -15,7 +17,7 @@ export default function GroupNames(props) {
 
     return (
         <div className="author-popup">
-            <button type="button" id='author-btn' onClick={() => toggleBtn()}>Group Members</button>
+            <Button variant="primary" type="button" id='author-btn' onClick={() => toggleBtn()}>Group Members</Button>
             <div className="group-members disappear">
                 {nameList}
             </div>
