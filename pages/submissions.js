@@ -1,13 +1,12 @@
 import { Slide } from "react-awesome-reveal";
 import dbConnect from "../lib/dbConnect";
 import Submission from "../models/Submission";
-import BootstrapCarousel from "../components/BootstrapCarousel";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Modal, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as Scroll } from "react-scroll";
-import GroupNames from "../components/GroupNames";
+import dynamic from "next/dynamic";
 
 export default function Submissions({ submissions }) {
   const [items, setItems] = useState(submissions);
@@ -51,6 +50,10 @@ export default function Submissions({ submissions }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const CreateModal = dynamic(() => import("../components/CreateModal"), {
+    ssr: false,
+  });
+
   return (
     <div id="submissionStart">
       <div className="filters">
@@ -65,20 +68,13 @@ export default function Submissions({ submissions }) {
           );
         })}
       </div>
-      <Modal show={show} onHide={handleClose} id="popup">
-        <Modal.Header closeButton>
-          <div className="title-div">
-            <h5 className="modal-title" id="popupTitle">
-              {popSubmission.title}
-            </h5>
-          </div>
-        </Modal.Header>
-        <Modal.Body>
-          <BootstrapCarousel images={getImages(popSubmission.images)} />
-          <GroupNames pop={popSubmission} />
-          <p>{popSubmission.desc}</p>
-        </Modal.Body>
-      </Modal>
+      {show && (
+        <CreateModal
+          popSubmission={popSubmission}
+          show={show}
+          handleClose={handleClose}
+        />
+      )}
       <div className="grid">
         <Slide direction="up">
           {items.map((submission) => (

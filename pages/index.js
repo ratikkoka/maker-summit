@@ -7,7 +7,7 @@ import { AppBar, IconButton, Toolbar, Collapse } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Link as Scroll } from "react-scroll";
 import Image from "next/image";
-import Submissions from "./submissions";
+import dynamic from "next/dynamic";
 
 export default function NewHome({ submissions }) {
   useEffect(() => {
@@ -31,6 +31,10 @@ export default function NewHome({ submissions }) {
   const StyledExpandMore = styled(ExpandMoreIcon)({
     color: "#ffffff",
     fontSize: "4rem",
+  });
+
+  const Submissions = dynamic(() => import("./submissions"), {
+    ssr: false,
   });
 
   return (
@@ -69,7 +73,7 @@ export default function NewHome({ submissions }) {
           </div>
         </Collapse>
       </div>
-      <Submissions submissions={submissions} />
+      {checked && <Submissions submissions={submissions} />}
     </>
   );
 }
