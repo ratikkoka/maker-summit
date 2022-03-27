@@ -1,4 +1,3 @@
-import NavBar from "./Nav";
 import Head from "next/head";
 
 export default function Layout({ children }) {
@@ -30,9 +29,8 @@ export default function Layout({ children }) {
         />
         <meta name="author" content="Ratik Koka, John You" />
         <meta name="description" content="Maker Summit Project Showcase" />
-        <title>Maker Summit</title>
+        <title>UW Maker Summit</title>
       </Head>
-      <NavBar />
       <main>{children}</main>
     </>
   );

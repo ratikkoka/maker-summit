@@ -3,7 +3,6 @@ import dbConnect from "../lib/dbConnect";
 import Submission from "../models/Submission";
 import { styled } from "@mui/material/styles";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import SortIcon from "@mui/icons-material/Sort";
 import { AppBar, IconButton, Toolbar, Collapse } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Link as Scroll } from "react-scroll";
@@ -32,11 +31,6 @@ export default function NewHome({ submissions }) {
   const StyledExpandMore = styled(ExpandMoreIcon)({
     color: "#ffffff",
     fontSize: "4rem",
-  });
-
-  const StyledSortIcon = styled(SortIcon)({
-    color: "#ffffff",
-    fontSize: "2rem",
   });
 
   return (

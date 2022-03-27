@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as Scroll } from "react-scroll";
-import GroupNames from '../components/GroupNames';
-
+import GroupNames from "../components/GroupNames";
 
 export default function Submissions({ submissions }) {
   const [items, setItems] = useState(submissions);
@@ -67,16 +66,18 @@ export default function Submissions({ submissions }) {
         })}
       </div>
       <Modal show={show} onHide={handleClose} id="popup">
-            <Modal.Header closeButton>
-              <div className="title-div">
-                <h5 className="modal-title" id="popupTitle">{popSubmission.title}</h5>
-              </div>
-            </Modal.Header>
-            <Modal.Body> 
-              <BootstrapCarousel images={getImages(popSubmission.images)} />
-              <GroupNames pop={popSubmission}/>
-              <p>{popSubmission.desc}</p>
-          </Modal.Body>
+        <Modal.Header closeButton>
+          <div className="title-div">
+            <h5 className="modal-title" id="popupTitle">
+              {popSubmission.title}
+            </h5>
+          </div>
+        </Modal.Header>
+        <Modal.Body>
+          <BootstrapCarousel images={getImages(popSubmission.images)} />
+          <GroupNames pop={popSubmission} />
+          <p>{popSubmission.desc}</p>
+        </Modal.Body>
       </Modal>
       <div className="grid">
         <Slide direction="up">
@@ -95,7 +96,7 @@ export default function Submissions({ submissions }) {
                   layout="fill"
                   src={getImages(submission.images)[0].substring(33)}
                 />
-                <div className='title-box'>
+                <div className="title-box">
                   <h5 className="submission-name">{submission.title}</h5>
                 </div>
               </div>

@@ -92,24 +92,6 @@ h3 {
   vertical-align: middle;
 }
 
-footer {
-  background-color: var(--second-color);
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  height: 60px;
-  width: 100%;
-}
-
-footer p {
-  text-align: center;
-  margin: 0;
-}
-
-footer a {
-  color: white;
-}
-
 .welcome {
   margin-top: 70px;
   margin-left: auto;
@@ -197,8 +179,13 @@ footer a {
   font-weight: bold;
 }
 
-.author-popup, .modal-header {
-  margin-top: .5rem;
+.modal-dialog {
+  margin-top: 64px !important;
+}
+
+.author-popup,
+.modal-header {
+  margin-top: 0.5rem;
 }
 
 .accordion {
@@ -212,10 +199,10 @@ footer a {
   text-align: center;
   background-color: rgba(162, 115, 248, 0.705);
   position: absolute;
-  left: .5rem;
-  bottom: .5rem;
+  left: 0.5rem;
+  bottom: 0.5rem;
   padding: 10px;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .title-div {
