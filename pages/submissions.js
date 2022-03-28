@@ -52,6 +52,26 @@ export default function Submissions({ submissions }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  function getThumbnail(submission) {
+    if (submission.images === "") {
+      console.log('hi');
+      return (
+       <Image
+      alt="Project Image"
+      layout="fill"
+      src='https://res.cloudinary.com/john-you/image/upload/v1648505198/UW-logo-512_1_mehyrl.png'
+      />);
+    } else {
+      return (
+        <Image
+        loader={driveLoader}
+        alt="Project Image"
+        layout="fill"
+        src={getImages(submission.images)[0].substring(33)}
+      />
+      )
+    }
+  }
   return (
     <div id="submissionStart">
       <div className="filters">
