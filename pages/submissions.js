@@ -1,12 +1,14 @@
 import { Slide } from "react-awesome-reveal";
 import dbConnect from "../lib/dbConnect";
 import Submission from "../models/Submission";
+import BootstrapCarousel from "../components/BootstrapCarousel";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as Scroll } from "react-scroll";
-import dynamic from "next/dynamic";
+import GroupNames from '../components/GroupNames';
+
 
 export default function Submissions({ submissions }) {
   const [items, setItems] = useState(submissions);
@@ -50,10 +52,6 @@ export default function Submissions({ submissions }) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const CreateModal = dynamic(() => import("../components/CreateModal"), {
-    ssr: false,
-  });
-
   return (
     <div id="submissionStart">
       <div className="filters">
@@ -68,13 +66,18 @@ export default function Submissions({ submissions }) {
           );
         })}
       </div>
-      {show && (
-        <CreateModal
-          popSubmission={popSubmission}
-          show={show}
-          handleClose={handleClose}
-        />
-      )}
+      <Modal show={show} onHide={handleClose} id="popup">
+            <Modal.Header closeButton>
+              <div className="title-div">
+                <h5 className="modal-title" id="popupTitle">{popSubmission.title}</h5>
+              </div>
+            </Modal.Header>
+            <Modal.Body> 
+              <BootstrapCarousel images={getImages(popSubmission.images)} specialLinks={popSubmission.newLinks} />
+              <GroupNames pop={popSubmission}/>
+              <p>{popSubmission.desc}</p>
+          </Modal.Body>
+      </Modal>
       <div className="grid">
         <Slide direction="up">
           {items.map((submission) => (
@@ -92,7 +95,7 @@ export default function Submissions({ submissions }) {
                   layout="fill"
                   src={getImages(submission.images)[0].substring(33)}
                 />
-                <div className="title-box">
+                <div className='title-box'>
                   <h5 className="submission-name">{submission.title}</h5>
                 </div>
               </div>
