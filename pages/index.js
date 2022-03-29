@@ -33,9 +33,7 @@ export default function NewHome({ submissions }) {
     fontSize: "4rem",
   });
 
-  const Submissions = dynamic(() => import("./submissions"), {
-    ssr: false,
-  });
+  const Submissions = dynamic(() => import("./submissions"));
 
   return (
     <>
@@ -66,7 +64,7 @@ export default function NewHome({ submissions }) {
               2022
             </h1>
             <Scroll to="submissionStart" offset={-70} smooth={true}>
-              <IconButton>
+              <IconButton aria-label="Go to Content Button">
                 <StyledExpandMore />
               </IconButton>
             </Scroll>

@@ -28,12 +28,12 @@ const BootstrapCarousel = ({ images, specialLinks, onlyTn }) => {
       />
     );
   });
-  images.forEach((image) => {
+  images.forEach((image, index) => {
     imageArray.push(
       <Image
         className="d-block w-100"
         loader={driveLoader}
-        alt="Project Image"
+        alt={"Project Image " + index}
         layout="fill"
         src={image.substring(33)}
       />

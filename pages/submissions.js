@@ -14,6 +14,8 @@ export default function Submissions({ submissions }) {
   const filtered = [...new Set(submissions.map((val) => val.category))];
   const [scroll, setScroll] = useState("none");
 
+  let categoryCount = Object.fromEntries(filtered.map((k) => [k, 1]));
+
   const filterItem = (curcat) => {
     const newItem = submissions.filter((newVal) => {
       return newVal.category === curcat;
@@ -49,6 +51,14 @@ export default function Submissions({ submissions }) {
     return `https://res.cloudinary.com/john-you/image/upload/thumbnails/${src}`;
   };
 
+  function getCategory(submission) {
+    let category = submission.category;
+    let count = categoryCount[category];
+    let title = category + " " + count;
+    categoryCount[category] = count + 1;
+    return title;
+  }
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -70,9 +80,7 @@ export default function Submissions({ submissions }) {
     );
   }
 
-  const CreateModal = dynamic(() => import("../components/CreateModal"), {
-    ssr: false,
-  });
+  const CreateModal = dynamic(() => import("../components/CreateModal"));
 
   return (
     <div id="submissionStart">
@@ -96,7 +104,7 @@ export default function Submissions({ submissions }) {
         />
       )}
       <div className="grid">
-        <Slide direction="up">
+        <Slide direction="up" triggerOnce={true}>
           {items.map((submission) => (
             <div key={submission._id}>
               <div
@@ -108,7 +116,10 @@ export default function Submissions({ submissions }) {
               >
                 {getImg(submission)}
                 <div className="title-box">
-                  <h5 className="submission-name">{submission.title}</h5>
+                  <p className="submission-name">{submission.title}</p>
+                </div>
+                <div className="category-box">
+                  <p className="submission-name">{getCategory(submission)}</p>
                 </div>
               </div>
             </div>
@@ -127,7 +138,6 @@ export default function Submissions({ submissions }) {
 export async function getStaticProps() {
   try {
     await dbConnect();
-
     /* find all the data in our database */
     const result = await Submission.find({});
     const submission = result.map((doc) => {

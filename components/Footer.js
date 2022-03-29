@@ -41,16 +41,28 @@ export default function Footer() {
                 <strong>CONNECT WITH US</strong>
               </p>
               <p className="mb-2">
-                <WhiteButton href="https://www.facebook.com/UWHFS/">
+                <WhiteButton
+                  href="https://www.facebook.com/UWHFS/"
+                  aria-label="Facebook"
+                >
                   <FacebookIcon />
                 </WhiteButton>
-                <WhiteButton href="https://www.instagram.com/uwhfs/">
+                <WhiteButton
+                  href="https://www.instagram.com/uwhfs/"
+                  aria-label="Instagram"
+                >
                   <InstagramIcon />
                 </WhiteButton>
-                <WhiteButton href="https://twitter.com/uofwhfs">
+                <WhiteButton
+                  href="https://twitter.com/uofwhfs"
+                  aria-label="Twitter"
+                >
                   <TwitterIcon />
                 </WhiteButton>
-                <WhiteButton href="https://www.youtube.com/user/UWHFS">
+                <WhiteButton
+                  href="https://www.youtube.com/user/UWHFS"
+                  aria-label="YouTube"
+                >
                   <YouTubeIcon />
                 </WhiteButton>
               </p>
