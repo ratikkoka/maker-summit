@@ -4,7 +4,7 @@ import Iframe from "react-iframe";
 
 const BootstrapCarousel = ({ images, specialLinks, onlyTn }) => {
   const driveLoader = ({ src }) => {
-    return `https://res.cloudinary.com/rkoka/image/upload/submission_images/${src}`;
+    return `https://res.cloudinary.com/rkoka/image/upload/f_auto/submission_images/${src}`;
   };
   if (onlyTn) {
     images = [];

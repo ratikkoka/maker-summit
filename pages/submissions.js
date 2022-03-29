@@ -44,11 +44,11 @@ export default function Submissions({ submissions }) {
   }
 
   const driveLoader = ({ src }) => {
-    return `https://res.cloudinary.com/rkoka/image/upload/submission_images/${src}`;
+    return `https://res.cloudinary.com/rkoka/image/upload/f_auto/submission_images/${src}`;
   };
 
   const secondLoader = ({ src }) => {
-    return `https://res.cloudinary.com/john-you/image/upload/thumbnails/${src}`;
+    return `https://res.cloudinary.com/john-you/image/upload/f_auto/thumbnails/${src}`;
   };
 
   function getCategory(submission) {
