@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Footer from "./Footer";
 
 export default function Layout({ children }) {
   return (
@@ -32,6 +33,7 @@ export default function Layout({ children }) {
         <title>UW Maker Summit</title>
       </Head>
       <main>{children}</main>
+      <Footer />
     </>
   );
 }
