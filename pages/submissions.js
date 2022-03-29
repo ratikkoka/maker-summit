@@ -7,9 +7,8 @@ import { useEffect, useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as Scroll } from "react-scroll";
-import GroupNames from '../components/GroupNames';
+import GroupNames from "../components/GroupNames";
 import dynamic from "next/dynamic";
-
 
 export default function Submissions({ submissions }) {
   const [items, setItems] = useState(submissions);
@@ -50,7 +49,7 @@ export default function Submissions({ submissions }) {
 
   const secondLoader = ({ src }) => {
     return `https://res.cloudinary.com/john-you/image/upload/thumbnails/${src}`;
-  }
+  };
 
   const [show, setShow] = useState(false);
 
@@ -61,13 +60,14 @@ export default function Submissions({ submissions }) {
     if (submission.onlyThumbnail) {
       tempLoader = secondLoader;
     }
-    return (<Image
-      loader={tempLoader}
-      alt="Project Image"
-      layout="fill"
-      src={getImages(submission.images)[0].substring(33)}
-    />);
-
+    return (
+      <Image
+        loader={tempLoader}
+        alt="Project Image"
+        layout="fill"
+        src={getImages(submission.images)[0].substring(33)}
+      />
+    );
   }
 
   const CreateModal = dynamic(() => import("../components/CreateModal"), {
@@ -107,7 +107,7 @@ export default function Submissions({ submissions }) {
                 }}
               >
                 {getImg(submission)}
-                <div className='title-box'>
+                <div className="title-box">
                   <h5 className="submission-name">{submission.title}</h5>
                 </div>
               </div>

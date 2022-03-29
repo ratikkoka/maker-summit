@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { Carousel } from "react-bootstrap";
-import Iframe from 'react-iframe'
+import Iframe from "react-iframe";
 
 const BootstrapCarousel = ({ images, specialLinks, onlyTn }) => {
   const driveLoader = ({ src }) => {
     return `https://res.cloudinary.com/rkoka/image/upload/submission_images/${src}`;
   };
   if (onlyTn) {
-    images=[];
+    images = [];
   }
   let imageArray = [];
   const links = specialLinks;
@@ -16,36 +16,34 @@ const BootstrapCarousel = ({ images, specialLinks, onlyTn }) => {
   }
   links.forEach((element) => {
     imageArray.push(
-    // <iframe src={element}></iframe>
-    <Iframe url={element}
+      // <iframe src={element}></iframe>
+      <Iframe
+        url={element}
         width="450px"
         height="450px"
         id="myId"
         className="myClassname"
         display="initial"
-        position="relative"/>
-
-    )
-  })
+        position="relative"
+      />
+    );
+  });
   images.forEach((image) => {
     imageArray.push(
       <Image
-      className="d-block w-100"
-      loader={driveLoader}
-      alt="Project Image"
-      layout="fill"
-      src={image.substring(33)}
-    />);
-  })
+        className="d-block w-100"
+        loader={driveLoader}
+        alt="Project Image"
+        layout="fill"
+        src={image.substring(33)}
+      />
+    );
+  });
   return (
     <>
       <Carousel>
         {imageArray.map((image, index) => {
-          return (
-            <Carousel.Item key={index}>
-              {image}
-            </Carousel.Item>
-          );
+          return <Carousel.Item key={index}>{image}</Carousel.Item>;
         })}
       </Carousel>
     </>
