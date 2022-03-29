@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Carousel } from "react-bootstrap";
+import Iframe from 'react-iframe'
 
 const BootstrapCarousel = ({ images, specialLinks, onlyTn }) => {
   const driveLoader = ({ src }) => {
@@ -14,7 +15,17 @@ const BootstrapCarousel = ({ images, specialLinks, onlyTn }) => {
     links = [];
   }
   links.forEach((element) => {
-    imageArray.push(<iframe src={element}></iframe>)
+    imageArray.push(
+    // <iframe src={element}></iframe>
+    <Iframe url={element}
+        width="450px"
+        height="450px"
+        id="myId"
+        className="myClassname"
+        display="initial"
+        position="relative"/>
+
+    )
   })
   images.forEach((image) => {
     imageArray.push(
