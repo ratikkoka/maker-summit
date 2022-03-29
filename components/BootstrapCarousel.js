@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Carousel } from "react-bootstrap";
 import Iframe from "react-iframe";
 
-const BootstrapCarousel = ({ images, specialLinks, onlyTn }) => {
+const BootstrapCarousel = ({ images, attachedVids, onlyTn }) => {
   const driveLoader = ({ src }) => {
     return `https://res.cloudinary.com/rkoka/image/upload/f_auto/submission_images/${src}`;
   };
@@ -10,13 +10,12 @@ const BootstrapCarousel = ({ images, specialLinks, onlyTn }) => {
     images = [];
   }
   let imageArray = [];
-  const links = specialLinks;
-  if (!specialLinks) {
+  const links = attachedVids;
+  if (!attachedVids) {
     links = [];
   }
   links.forEach((element) => {
     imageArray.push(
-      // <iframe src={element}></iframe>
       <Iframe
         url={element}
         width="450px"
