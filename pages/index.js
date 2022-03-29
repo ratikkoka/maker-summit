@@ -10,11 +10,11 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 
 export default function NewHome({ submissions }) {
+  const [checked, setChecked] = useState(false);
+
   useEffect(() => {
     setChecked(true);
   }, []);
-
-  const [checked, setChecked] = useState(false);
 
   const StyledAppBar = styled(AppBar)({
     background: "none",
