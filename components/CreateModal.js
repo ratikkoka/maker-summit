@@ -18,7 +18,7 @@ export default function CreateModal({ popSubmission, show, handleClose }) {
         </div>
       </Modal.Header>
       <Modal.Body>
-        <BootstrapCarousel images={getImages(popSubmission.images)} />
+        <BootstrapCarousel images={getImages(popSubmission.images)} specialLinks={popSubmission.newLinks}/>
         <GroupNames pop={popSubmission} />
         <p>{popSubmission.desc}</p>
       </Modal.Body>

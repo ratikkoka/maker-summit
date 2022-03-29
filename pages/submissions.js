@@ -1,12 +1,15 @@
 import { Slide } from "react-awesome-reveal";
 import dbConnect from "../lib/dbConnect";
 import Submission from "../models/Submission";
+import BootstrapCarousel from "../components/BootstrapCarousel";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as Scroll } from "react-scroll";
+import GroupNames from '../components/GroupNames';
 import dynamic from "next/dynamic";
+
 
 export default function Submissions({ submissions }) {
   const [items, setItems] = useState(submissions);
@@ -45,10 +48,27 @@ export default function Submissions({ submissions }) {
     return `https://res.cloudinary.com/rkoka/image/upload/submission_images/${src}`;
   };
 
+  const secondLoader = ({ src }) => {
+    return `https://res.cloudinary.com/john-you/image/upload/thumbnails/${src}`;
+  }
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  function getImg(submission) {
+    let tempLoader = driveLoader;
+    if (submission.onlyThumbnail) {
+      tempLoader = secondLoader;
+    }
+    return (<Image
+      loader={tempLoader}
+      alt="Project Image"
+      layout="fill"
+      src={getImages(submission.images)[0].substring(33)}
+    />);
+
+  }
 
   const CreateModal = dynamic(() => import("../components/CreateModal"), {
     ssr: false,
@@ -82,17 +102,12 @@ export default function Submissions({ submissions }) {
               <div
                 className="card"
                 onClick={() => {
-                  handleShow();
+                  handleShow(driveLoader);
                   setSubmission(submission);
                 }}
               >
-                <Image
-                  loader={driveLoader}
-                  alt="Project Image"
-                  layout="fill"
-                  src={getImages(submission.images)[0].substring(33)}
-                />
-                <div className="title-box">
+                {getImg(submission)}
+                <div className='title-box'>
                   <h5 className="submission-name">{submission.title}</h5>
                 </div>
               </div>
