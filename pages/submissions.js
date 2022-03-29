@@ -47,30 +47,26 @@ export default function Submissions({ submissions }) {
     return `https://res.cloudinary.com/rkoka/image/upload/submission_images/${src}`;
   };
 
+  const secondLoader = ({ src }) => {
+    return `https://res.cloudinary.com/john-you/image/upload/thumbnails/${src}`;
+  }
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  function getThumbnail(submission) {
-    if (submission.images === "") {
-      console.log('hi');
-      return (
-       <Image
+  function getImg(submission) {
+    let tempLoader = driveLoader;
+    if (submission.onlyThumbnail) {
+      tempLoader = secondLoader;
+    }
+    return (<Image
+      loader={tempLoader}
       alt="Project Image"
       layout="fill"
-      src='https://res.cloudinary.com/john-you/image/upload/v1648505198/UW-logo-512_1_mehyrl.png'
-      />);
-    } else {
-      return (
-        <Image
-        loader={driveLoader}
-        alt="Project Image"
-        layout="fill"
-        src={getImages(submission.images)[0].substring(33)}
-      />
-      )
-    }
+      src={getImages(submission.images)[0].substring(33)}
+    />);
+
   }
   return (
     <div id="submissionStart">
@@ -93,7 +89,7 @@ export default function Submissions({ submissions }) {
               </div>
             </Modal.Header>
             <Modal.Body> 
-              <BootstrapCarousel images={getImages(popSubmission.images)} specialLinks={popSubmission.newLinks} />
+              <BootstrapCarousel images={getImages(popSubmission.images)} specialLinks={popSubmission.newLinks} onlyTn={popSubmission.onlyThumbnail} />
               <GroupNames pop={popSubmission}/>
               <p>{popSubmission.desc}</p>
           </Modal.Body>
@@ -105,16 +101,11 @@ export default function Submissions({ submissions }) {
               <div
                 className="card"
                 onClick={() => {
-                  handleShow();
+                  handleShow(driveLoader);
                   setSubmission(submission);
                 }}
               >
-                <Image
-                  loader={driveLoader}
-                  alt="Project Image"
-                  layout="fill"
-                  src={getImages(submission.images)[0].substring(33)}
-                />
+                {getImg(submission)}
                 <div className='title-box'>
                   <h5 className="submission-name">{submission.title}</h5>
                 </div>
