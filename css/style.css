@@ -294,6 +294,49 @@ li {
   padding: 0;
 }
 
+.container {
+  width: 100%;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+footer {
+  background-color: var(--first-color);
+  font-size: 80%;
+}
+
+footer img {
+  width: 85%;
+}
+
+footer .row {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+footer a:hover {
+  color: white;
+}
+
+.mainfooter .row {
+  justify-content: space-between;
+}
+
+.subfooter {
+  color: #6c757d;
+}
+
+.subfooter a {
+  color: #b0b0b0;
+}
+
 @media (max-width: 468px) {
   .card {
     width: 300px;
