@@ -9,7 +9,7 @@
 
 .mui-root {
   min-height: 100vh;
-  background-color: #4b2e83;
+  background-color: var(--first-color);
   background-repeat: "no-repeat";
   background-size: "cover";
 }
@@ -223,7 +223,8 @@ p.submission-name {
   border-radius: 30%;
 }
 
-.carousel-control-prev, .carousel-control-next {
+.carousel-control-prev,
+.carousel-control-next {
   margin-top: 40%;
   height: 50px;
 }
