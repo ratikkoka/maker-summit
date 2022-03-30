@@ -38,7 +38,7 @@ export default function CreateModal({ popSubmission, show, handleClose }) {
         ) : (
           <BootstrapCarousel
             images={getImages(popSubmission.images)}
-            specialLinks={popSubmission.newLinks}
+            attachedVids={popSubmission.attachedVids}
           />
         )}
         <GroupNames pop={popSubmission} />
