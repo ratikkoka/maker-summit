@@ -18,12 +18,12 @@ const BootstrapCarousel = ({ images, attachedVids, onlyTn }) => {
     imageArray.push(
       <Iframe
         url={element}
-        width="450px"
+        width="80%"
         height="450px"
-        id="myId"
-        className="myClassname"
         display="initial"
         position="relative"
+        className="iframe-vid"
+        id="myId"
       />
     );
   });
