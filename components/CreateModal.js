@@ -14,7 +14,7 @@ export default function CreateModal({ popSubmission, show, handleClose }) {
   if (popSubmission.newLinks) {
     size = "lg";
   }
-  let link = '';
+  let link = <p></p>;
   if (popSubmission.category === 'Software' && popSubmission.link) {
     link = <a href={popSubmission.link} target="_blank">View Website Submission</a>
   }
