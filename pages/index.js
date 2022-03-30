@@ -8,12 +8,14 @@ import { useState, useEffect } from "react";
 import { Link as Scroll } from "react-scroll";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import myGa from "../src/myGa";
 
 export default function NewHome({ submissions }) {
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
     setChecked(true);
+    myGa();
   }, []);
 
   const StyledAppBar = styled(AppBar)({

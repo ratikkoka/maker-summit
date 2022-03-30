@@ -42,7 +42,7 @@ body {
 }
 
 header {
-  background-color:var(--first-color) !important;
+  background-color: var(--first-color) !important;
 }
 
 .btn-primary {
@@ -215,7 +215,8 @@ p.submission-name {
   min-height: 3px !important;
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
   background-color: rgba(162, 115, 248, 0.705);
   border-radius: 30%;
 }
