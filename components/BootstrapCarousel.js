@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Carousel } from "react-bootstrap";
 import Iframe from "react-iframe";
 
-const BootstrapCarousel = ({ images, attachedVids, onlyTn }) => {
+const BootstrapCarousel = ({ images, attachedVids, onlyTn, film }) => {
   const driveLoader = ({ src }) => {
     return `https://res.cloudinary.com/rkoka/image/upload/f_auto/submission_images/${src}`;
   };
@@ -13,6 +13,11 @@ const BootstrapCarousel = ({ images, attachedVids, onlyTn }) => {
   const links = attachedVids;
   if (!attachedVids) {
     links = [];
+  }
+  if (film.length > 4) {
+    if (film.substring(0, 4) == "http") {
+      links.push(film);
+    }
   }
   links.forEach((element) => {
     imageArray.push(
