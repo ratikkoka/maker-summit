@@ -20,6 +20,7 @@ export default function NewHome({ submissions }) {
 
   const StyledAppBar = styled(AppBar)({
     background: "none",
+    maxHeight: "52px",
   });
 
   const StyledToolbar = styled(Toolbar)({

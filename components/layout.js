@@ -27,7 +27,8 @@ export default function Layout({ children }) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <meta name="author" content="Ratik Koka, John You" />
+        <link rel="manifest" href="/favicon/site.webmanifest" /> 
+        <meta name="author" content="Ratik Koka & John You" />
         <meta name="description" content="Maker Summit Project Showcase" />
         <title>UW Maker Summit</title>
       </Head>

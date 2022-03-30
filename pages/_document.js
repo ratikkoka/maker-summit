@@ -12,6 +12,7 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap"
             rel="stylesheet"
           />
+          <link rel="shortcut icon" href="/favicon.ico" />
           {this.props.emotionStyleTags}
         </Head>
         <body>

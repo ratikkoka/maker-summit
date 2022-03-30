@@ -23,6 +23,8 @@
 }
 
 .mui-appbar-title {
+  margin-top: 4px;
+  margin-bottom: 4px;
   flex-grow: 1;
 }
 
