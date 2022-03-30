@@ -2,7 +2,7 @@
 
 Website for the 7th Annual Maker Summit built using Next.js and MongoDB.
 
-A Live Version can be found [here](https://maker-summit.vercel.app/).
+A Live Version can be found [here](https://www.uwmakersummit.com/).
 
 ## Configuration
 
