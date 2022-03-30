@@ -16,7 +16,7 @@ const BootstrapCarousel = ({ images, attachedVids, onlyTn, film }) => {
   }
   if (film.length > 4) {
     if (film.substring(0, 4) == "http") {
-      links.push(film);
+      links.unshift(film);
     }
   }
   links.forEach((element) => {
