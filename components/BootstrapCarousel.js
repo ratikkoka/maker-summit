@@ -23,6 +23,7 @@ const BootstrapCarousel = ({ images, attachedVids, onlyTn }) => {
         display="initial"
         position="relative"
         className="iframe-vid"
+        id="myId"
       />
     );
   });
