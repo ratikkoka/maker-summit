@@ -16,7 +16,7 @@ export default function CreateModal({ popSubmission, show, handleClose }) {
   }
   let link = '';
   if (popSubmission.category === 'Software' && popSubmission.link) {
-    link = <a href={popSubmission.link} target="_blank">Link to software!</a>
+    link = <a href={popSubmission.link} target="_blank">View Website Submission</a>
   }
   return (
     <Modal size={size} show={show} onHide={handleClose} id="popup">
