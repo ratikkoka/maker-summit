@@ -14,7 +14,10 @@ export default function CreateModal({ popSubmission, show, handleClose }) {
   if (popSubmission.newLinks) {
     size = "lg";
   }
-
+  let link = '';
+  if (popSubmission.category === 'Software' && popSubmission.link) {
+    link = <a href={popSubmission.link} target="_blank">Link to software!</a>
+  }
   return (
     <Modal size={size} show={show} onHide={handleClose} id="popup">
       <Modal.Header closeButton>
@@ -41,6 +44,8 @@ export default function CreateModal({ popSubmission, show, handleClose }) {
             attachedVids={popSubmission.attachedVids}
           />
         )}
+        <br></br>
+        {link}
         <GroupNames pop={popSubmission} />
         <p>{popSubmission.desc}</p>
       </Modal.Body>
