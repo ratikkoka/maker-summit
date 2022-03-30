@@ -41,6 +41,10 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+header {
+  background-color:var(--first-color) !important;
+}
+
 .btn-primary {
   color: var(--first-color) !important;
   background-color: var(--second-color) !important;
