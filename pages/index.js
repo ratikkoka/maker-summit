@@ -60,9 +60,9 @@ export default function NewHome({ submissions }) {
         >
           <div className="mui-container">
             <h1 className="mui-title">
-              Maker
+              Maker Summit
               <br />
-              Summit
+              Project Submissions
               <br />
               2022
             </h1>

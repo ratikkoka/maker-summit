@@ -95,6 +95,13 @@ export default function Submissions({ submissions }) {
             </Button>
           );
         })}
+        <Button variant="primary" 
+          href="https://docs.google.com/forms/d/e/1FAIpQLSckqpJ9azNKkrc--oJkQIvU-NlbPEUr8riF3SsrqkgKffxtCA/viewform?usp=sf_link">
+          Vote Here!
+        </Button>
+        <Button variant="primary" href="https://hfs.uw.edu/Maker-Summit-2022/Schedule-of-Events">
+          Events
+        </Button>
       </div>
       {show && (
         <CreateModal
