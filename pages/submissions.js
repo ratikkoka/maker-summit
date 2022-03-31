@@ -96,10 +96,14 @@ export default function Submissions({ submissions }) {
           );
         })}
         <Button variant="primary" 
-          href="https://docs.google.com/forms/d/e/1FAIpQLSckqpJ9azNKkrc--oJkQIvU-NlbPEUr8riF3SsrqkgKffxtCA/viewform?usp=sf_link">
+          href="https://docs.google.com/forms/d/e/1FAIpQLSckqpJ9azNKkrc--oJkQIvU-NlbPEUr8riF3SsrqkgKffxtCA/viewform?usp=sf_link"
+          target="_blank"
+          rel="noreferrer">
           Vote Here!
         </Button>
-        <Button variant="primary" href="https://hfs.uw.edu/Maker-Summit-2022/Schedule-of-Events">
+        <Button variant="primary" href="https://hfs.uw.edu/Maker-Summit-2022/Schedule-of-Events"
+          target="_blank"
+          rel="noreferrer">
           Events
         </Button>
       </div>
