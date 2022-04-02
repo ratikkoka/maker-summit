@@ -114,6 +114,7 @@ export default function Submissions({ submissions }) {
           handleClose={handleClose}
         />
       )}
+      <p className="help-text">Click on a project to learn more!</p>
       <div className="grid">
         <Slide direction="up" triggerOnce={true}>
           {items.map((submission) => (
