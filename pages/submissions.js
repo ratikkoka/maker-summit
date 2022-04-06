@@ -151,7 +151,7 @@ export async function getStaticProps() {
   try {
     await dbConnect();
     /* find all the data in our database */
-    const result = await Submission.find({});
+    const result = await Submission.find({}).sort({"_id":1});
     const submission = result.map((doc) => {
       const submission = doc.toObject();
       submission._id = submission._id.toString();
